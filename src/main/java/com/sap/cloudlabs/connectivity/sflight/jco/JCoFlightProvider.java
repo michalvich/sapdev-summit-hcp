@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import javax.servlet.http.HttpServlet;
 
+import com.sap.cloudlabs.connectivity.sflight.ConnectivityException;
 import com.sap.cloudlabs.connectivity.sflight.FlightProvider;
 import com.sap.conn.jco.JCoContext;
 import com.sap.conn.jco.JCoDestination;
@@ -71,11 +72,31 @@ public class JCoFlightProvider extends HttpServlet implements FlightProvider {
 	 * com.sap.cloudlabs.connectivity.sflight.FlightProvider#getFlightList(java
 	 * .lang.String, java.lang.String)
 	 */
-	public String getFlightList(String cityFrom, String cityTo) {
+	public String getFlightList(String cityFrom, String cityTo) throws ConnectivityException {
 
-	
-			throw new RuntimeException("not implemented");
-	
+		try {
+			JCoDestination destination = JCoDestinationManager.getDestination(SFLIGHT_DESTINATION);
+			JCoFunction bapiSflightGetList = destination.getRepository().getFunction(BAPI_SFLIGHT_GETLIST);
+
+			JCoParameterList imports = bapiSflightGetList.getImportParameterList();
+			if (cityFrom != null && !cityFrom.isEmpty()) {
+				cityFrom = cityFrom.toUpperCase();
+				imports.setValue("FROMCITY", cityFrom);
+				imports.setValue("FROMCOUNTRYKEY", countries.get(cityFrom));
+			}
+			if (cityTo != null && !cityTo.isEmpty()) {
+				cityTo = cityTo.toUpperCase();
+				imports.setValue("TOCITY", cityTo);
+				imports.setValue("TOCOUNTRYKEY", countries.get(cityTo));
+			}
+
+			bapiSflightGetList.execute(destination);
+
+			return bapiSflightGetList.getTableParameterList().toJSON();
+
+		} catch (JCoException e) {
+			throw new ConnectivityException("something went wrong somewhere:" + e.getMessageText());
+		}
 
 	}
 

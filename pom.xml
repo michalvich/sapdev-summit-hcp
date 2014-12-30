@@ -56,9 +56,101 @@
 			<name>SpringSource Repository</name>
 			<url>http://repo.springsource.org/release</url>
 		</repository>
+		<repository>
+			<id>sapui5</id>
+			<name>sapui5</name>
+			<url>http://chris.wombling.com:8080/repository/sapui5/</url>
+		</repository>
 	</repositories>
 
 	<dependencies>
+
+		<!-- SAP UI5 from local repository -->
+
+		<dependency>
+			<groupId>com.sap.ui5</groupId>
+			<artifactId>com.sap.ui5.commons</artifactId>
+			<version>1.24.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.ui5</groupId>
+			<artifactId>com.sap.ui5.comp</artifactId>
+			<version>1.24.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.ui5</groupId>
+			<artifactId>com.sap.ui5.core</artifactId>
+			<version>1.24.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.ui5</groupId>
+			<artifactId>com.sap.ui5.layout</artifactId>
+			<version>1.24.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.ui5</groupId>
+			<artifactId>com.sap.ui5.makit</artifactId>
+			<version>1.24.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.ui5</groupId>
+			<artifactId>com.sap.ui5.mobile</artifactId>
+			<version>1.24.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.ui5</groupId>
+			<artifactId>com.sap.ui5.mobile-ext</artifactId>
+			<version>1.24.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.ui5</groupId>
+			<artifactId>com.sap.ui5.richtexteditor</artifactId>
+			<version>1.24.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.ui5</groupId>
+			<artifactId>com.sap.ui5.table</artifactId>
+			<version>1.24.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.ui5</groupId>
+			<artifactId>com.sap.ui5.themelib-sap-bluecrystal</artifactId>
+			<version>1.24.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.ui5</groupId>
+			<artifactId>com.sap.ui5.unified</artifactId>
+			<version>1.24.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.ui5</groupId>
+			<artifactId>com.sap.ui5.ux3</artifactId>
+			<version>1.24.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.ui5</groupId>
+			<artifactId>com.sap.ui5.vbm</artifactId>
+			<version>1.24.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.ui5</groupId>
+			<artifactId>com.sap.ui5.viz</artifactId>
+			<version>1.24.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.ui5-server</groupId>
+			<artifactId>com.sap.ui5.resource</artifactId>
+			<version>1.24.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.ui5-server</groupId>
+			<artifactId>com.sap.ui5.utils</artifactId>
+			<version>1.24.3</version>
+		</dependency>
+
+
+
+
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
